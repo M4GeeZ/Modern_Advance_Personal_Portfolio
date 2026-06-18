@@ -1,5 +1,6 @@
 import { skillGroups } from "../../data/skills";
 import "./Skills.css";
+
 export default function Skills() {
   return (
     <section className="skills reveal-section" id="skills">
@@ -9,13 +10,15 @@ export default function Skills() {
           Skills <span>Menu</span>
         </h2>
       </div>
+
       <div className="skills-menu">
         {skillGroups.map((g, i) => (
           <div className="skill-row" key={g.title}>
-            <a href="#contact">
+            <button type="button" className="skill-row-btn">
               <span>{g.title}</span>
               <small>0{i + 1}</small>
-            </a>
+            </button>
+
             <div className="skill-marquee">
               <div className="skill-track">
                 {[...g.items, ...g.items, ...g.items].map((it, k) => (

@@ -83,3 +83,40 @@
   justify-content: center;
   scroll-margin-top: 0px;
 }
+@media (max-width: 768px) {
+  .contact {
+    min-height: 100vh;
+    padding: 110px 20px 70px;
+    overflow: hidden;
+  }
+
+  .contact .section-title {
+    font-size: 42px;
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  .contact-text {
+    max-width: 100%;
+    font-size: 15.5px;
+    line-height: 1.7;
+    padding: 0 8px;
+  }
+
+  .contact-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: nowrap;
+  }
+
+  .contact-links a {
+    width: 100%;
+    max-width: 230px;
+    justify-content: center;
+    padding: 18px 22px;
+    white-space: nowrap;
+  }
+}

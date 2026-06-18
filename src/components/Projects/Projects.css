@@ -118,38 +118,84 @@ color: #79B3FB;
   line-height: 1.75;
   color: #d5d5d5;
 }
+
 @media (max-width: 850px) {
+  .projects {
+    padding-top: 70px;
+    padding-inline: 14px;
+    overflow: visible;
+  }
+
+  .marquee {
+    margin-bottom: 42px;
+  }
+
+  .marquee-track span {
+    font-size: 18vw;
+  }
+
   .project-card {
-    position: relative;
-    top: auto;
-    border-radius: 28px;
+    position: sticky;
+    top: 95px;
+    max-width: 100%;
+    min-height: 76vh;
+    margin: 0 auto 55px;
+    border-radius: 30px;
     padding: 22px;
   }
-  .project-top,
-  .project-body {
-    grid-template-columns: 1fr;
+
+  .project-top {
     flex-direction: column;
     align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
   }
+
+  .project-id {
+    gap: 14px;
+  }
+
+  .project-id strong {
+    font-size: 48px;
+  }
+
+  .project-id h3 {
+    font-size: 20px;
+  }
+
+  .project-id p {
+    font-size: 12px;
+  }
+
+  .project-top a {
+    padding: 11px 20px;
+    font-size: 12px;
+  }
+
   .project-body {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
+
   .mockup {
-    min-height: 210px;
+    min-height: 230px;
+    height: 230px;
+    border-radius: 24px;
   }
-  .project-id strong {
-    font-size: 42px;
+
+  .project-image {
+    border-radius: 24px;
   }
+
   .project-body > p {
-    font-size: 16px;
+    font-size: 15.5px;
+    line-height: 1.65;
   }
 }
 
-
-
 .mockup {
   width: 100%;
-  height: 100%;
   overflow: hidden;
   border-radius: 32px;
 }
