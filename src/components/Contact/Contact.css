@@ -1,0 +1,85 @@
+.contact {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact-text {
+  max-width: 700px;
+  color: #aaa;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.contact-links a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 22px;
+  padding: 22px 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.contact-links a::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+  background: rgba(96,165,250,0.18);
+  filter: blur(28px);
+  opacity: 0;
+  transition: all .35s ease;
+  z-index: -1;
+}
+
+.contact-links a:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96,165,250,.5);
+
+  box-shadow:
+    0 0 20px rgba(96,165,250,.25),
+    0 0 40px rgba(96,165,250,.15);
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.7);
+}
+
+.contact-links a:hover::before {
+  opacity: 1;
+}
+
+
+.contact-links a svg {
+  transition: .35s ease;
+}
+
+.contact-links a:hover svg {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(96,165,250,.8));
+}
+.contact-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 38px;
+  flex-wrap: nowrap;
+}
+
+.contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-margin-top: 0px;
+}
