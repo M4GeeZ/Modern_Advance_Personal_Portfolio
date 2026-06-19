@@ -54,6 +54,7 @@
   font-family: Cinzel, serif;
   font-weight: 400;
   white-space: nowrap;
+  transform: translateX(-50px);
 }
 
 .top-role {

@@ -236,6 +236,8 @@
 .contact-left {
   text-align: left;
   transform: translateY(-70px);
+  position: relative;
+  top: -10px;
 }
 
 .contact-info {
