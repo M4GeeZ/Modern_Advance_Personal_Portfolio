@@ -52,8 +52,9 @@
   opacity: 0;
 }
 
-.contact-left {
-  text-align: left;
+.contact-left{
+  position: relative;
+  top: -80px;
 }
 
 .contact-title {
@@ -200,11 +201,6 @@
     gap: 42px;
     overflow-y: auto;
   }
-
-  .contact-left {
-    text-align: center;
-  }
-
   .contact-desc {
     margin-inline: auto;
     font-size: 17px;

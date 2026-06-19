@@ -1,7 +1,7 @@
 import StudentLMS from "../assets/images/Student-LMS.png";
 import Resturent from "../assets/images/Resturent.png";
 import Portfolio from "../assets/images/Portfolio.png";
-import CarshareUI from "../assets/images/Carshare UI.png";
+import CarshareUI from "../assets/images/Carshare-UI.png";
 import PlaystoreMockups from "../assets/images/Playstore-Mockups-UI.png";
 
 export const projects = [
