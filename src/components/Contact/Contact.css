@@ -233,3 +233,19 @@
     word-break: break-word;
   }
 }
+.contact-left {
+  text-align: left;
+  transform: translateY(-70px);
+}
+
+.contact-info {
+  gap: 16px;
+}
+
+.contact-desc {
+  margin-bottom: 36px;
+}
+
+.contact-desc::after {
+  margin-top: 24px;
+}
