@@ -84,7 +84,8 @@
   inset: 0;
   background: #000;
   z-index: 200;
-  padding: 135px 5vw 58px;
+  padding: 128px 5vw 58px;
+  overflow-y: auto;
 }
 
 .nav-head {
@@ -92,25 +93,42 @@
   z-index: 250;
   display: flex;
   align-items: center;
-  gap: 34px;
-  margin-bottom: 42px;
+  gap: 28px;
+  min-height: 44px;
+  margin-bottom: 44px;
 }
 
 .nav-head span {
+  flex-shrink: 0;
   font-family: Cinzel, serif;
   letter-spacing: 0.25em;
   color: #aaa;
+  font-size: 14px;
 }
 
 .nav-head div {
   display: flex;
+  align-items: center;
   gap: 28px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-head a {
+  position: relative;
+  display: inline-flex;
   color: #fff;
   text-decoration: none;
   font-weight: 800;
+  font-size: 14px;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.35s ease;
+}
+
+.nav-head a:hover {
+  color: #60a5fa;
+  transform: translateY(-3px);
 }
 
 .nav-overlay nav {
@@ -120,6 +138,7 @@
 .nav-overlay nav button {
   width: 100%;
   height: 13vh;
+  min-height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,11 +158,11 @@
   background: linear-gradient(90deg, #fff, #b9d8ff, #60a5fa);
   -webkit-background-clip: text;
   color: transparent;
+  transition: 0.35s;
 }
 
 .nav-overlay nav button:hover span {
   transform: translateX(25px);
-  transition: 0.35s;
 }
 
 .nav-overlay small {
@@ -158,6 +177,7 @@
 
   .brand {
     font-size: 18px;
+    letter-spacing: 0.1em;
   }
 
   .menu-btn {
@@ -166,35 +186,41 @@
   }
 
   .nav-overlay {
-    padding: 105px 5vw 40px;
+    padding: 88px 24px 40px;
   }
 
   .nav-head {
-    gap: 18px;
+    display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    min-height: 70px;
+    margin-bottom: 44px;
+  }
+
+  .nav-head span {
+    width: 100%;
+    font-size: 13px;
   }
 
   .nav-head div {
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .nav-head a {
+    font-size: 13px;
   }
 
   .nav-overlay nav button {
     height: 11vh;
+    min-height: 78px;
   }
 
   .nav-overlay nav span {
     font-size: 46px;
   }
-}
-
-
-.nav-head a {
-  position: relative;
-  transition: 0.35s ease;
-}
-
-.nav-head a:hover {
-  color: #60a5fa;
-  transform: translateY(-3px);
 }
