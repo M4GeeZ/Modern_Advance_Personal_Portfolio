@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { projects } from "../../data/projects";
 import "./Projects.css";
-import StudentLMS from "../../assets/images/Student-LMS.png";
 
 export default function Projects() {
   return (
@@ -22,6 +21,7 @@ export default function Projects() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.7 }}
         >
+          
           <div className="project-top">
             <div className="project-id">
               <strong>{p.id}</strong>
@@ -44,6 +44,7 @@ export default function Projects() {
           </div>
         </motion.article>
       ))}
+      
     </section>
   );
 }

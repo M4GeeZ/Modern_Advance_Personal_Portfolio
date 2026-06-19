@@ -5,6 +5,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tsparticles/react": "^4.2.0",
     "@tsparticles/slim": "^4.2.0",
     "framer-motion": "^12.40.0",
