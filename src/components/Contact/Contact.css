@@ -37,6 +37,8 @@
   box-shadow:
     0 0 40px rgba(0,240,255,.18),
     0 0 70px rgba(127,92,255,.14);
+    opacity: 0;
+  visibility: hidden;
 }
 
 .contact-inner {

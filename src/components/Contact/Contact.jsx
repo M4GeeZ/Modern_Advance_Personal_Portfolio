@@ -18,13 +18,30 @@ export default function Contact() {
 
   useLayoutEffect(() => {
   const ctx = gsap.context(() => {
+    gsap.set(boxRef.current, {
+      opacity: 0,
+      visibility: "hidden",
+      width: "260px",
+      height: "260px",
+      borderRadius: "50%",
+      scale: 0.75,
+    });
+
+    gsap.set(".contact-inner", {
+      opacity: 0,
+      y: 60,
+      scale: 0.96,
+    });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=2600",
+        end: "+=3600",
         scrub: 1.2,
         pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -56,30 +73,34 @@ export default function Contact() {
           ease: "power3.in",
         });
     });
-tl.set(boxRef.current, { opacity: 1 });
-    tl.fromTo(
-      boxRef.current,
-      {
-        opacity: 0,
-        width: "260px",
-        height: "260px",
-        borderRadius: "50%",
-        scale: 0.75,
-      },
-      {
-        width: "92vw",
-        height: "82vh",
-        borderRadius: "42px",
-        scale: 1,
-        duration: 1.4,
-        ease: "power3.inOut",
-      }
-    ).fromTo(
+
+    tl.set(boxRef.current, {
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    tl.to(boxRef.current, {
+      width: "92vw",
+      height: "82vh",
+      borderRadius: "42px",
+      scale: 1,
+      duration: 1.4,
+      ease: "power3.inOut",
+    });
+
+    tl.to(
       ".contact-inner",
-      { opacity: 0, y: 60, scale: 0.96 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.8 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+      },
       "-=0.35"
     );
+
+    ScrollTrigger.refresh();
   }, sectionRef);
 
   return () => ctx.revert();
