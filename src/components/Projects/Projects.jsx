@@ -37,7 +37,13 @@ export default function Projects() {
 
           <div className="project-body">
             <div className="mockup">
-  <img src={p.image} alt={p.title} className="project-image" />
+  <img
+  src={p.image}
+  alt={p.title}
+  className="project-image"
+  loading="lazy"
+  decoding="async"
+/>
 </div>
 
             <p>{p.desc}</p>

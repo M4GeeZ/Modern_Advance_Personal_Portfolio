@@ -22,7 +22,7 @@ export default function Preloader({ onFinish }) {
       } else {
         setCount(current);
       }
-    }, 70);
+    }, 30);
 
     return () => clearInterval(interval);
   }, [onFinish]);
