@@ -21,9 +21,16 @@ export default function Skills() {
 
             <div className="skill-marquee">
               <div className="skill-track">
-                {[...g.items, ...g.items, ...g.items].map((it, k) => (
-                  <b key={k}>{it}</b>
-                ))}
+                {[...g.items, ...g.items, ...g.items].map((it, k) => {
+  const Icon = it.icon;
+
+  return (
+    <b key={k}>
+      <Icon />
+      <span>{it.name}</span>
+    </b>
+  );
+})}
               </div>
             </div>
           </div>
