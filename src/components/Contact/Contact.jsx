@@ -17,94 +17,148 @@ export default function Contact() {
   const [error, setError] = useState(false);
 
   useLayoutEffect(() => {
-  const ctx = gsap.context(() => {
-    gsap.set(boxRef.current, {
-      opacity: 0,
-      visibility: "hidden",
-      width: "260px",
-      height: "260px",
-      borderRadius: "50%",
-      scale: 0.75,
-    });
+    const ctx = gsap.context(() => {
+      const isDesktop = window.innerWidth > 768;
 
-    gsap.set(".contact-inner", {
-      opacity: 0,
-      y: 60,
-      scale: 0.96,
-    });
+      gsap.set(boxRef.current, {
+        opacity: 0,
+        visibility: "hidden",
+        width: "260px",
+        height: "260px",
+        borderRadius: "50%",
+        scale: 0.75,
+      });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=3600",
-        scrub: 1.2,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+      gsap.set(".contact-inner", {
+        opacity: 0,
+        y: 60,
+        scale: 0.96,
+      });
 
-    const words = gsap.utils.toArray(".process-word");
+      if (isDesktop) {
+        gsap.set(".topbar", {
+          y: 0,
+          opacity: 1,
+          pointerEvents: "auto",
+        });
+      }
 
-    words.forEach((word) => {
-      tl.fromTo(
-        word,
-        { opacity: 0, y: 90, scale: 0.92 },
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=3600",
+          scrub: 1.2,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onLeave: () => {
+            if (isDesktop) {
+              gsap.to(".topbar", {
+                y: 0,
+                opacity: 1,
+                pointerEvents: "auto",
+                duration: 0.35,
+                ease: "power3.out",
+              });
+            }
+          },
+          onLeaveBack: () => {
+            if (isDesktop) {
+              gsap.to(".topbar", {
+                y: 0,
+                opacity: 1,
+                pointerEvents: "auto",
+                duration: 0.35,
+                ease: "power3.out",
+              });
+            }
+          },
+        },
+      });
+
+      const words = gsap.utils.toArray(".process-word");
+
+      words.forEach((word) => {
+        tl.fromTo(
+          word,
+          { opacity: 0, y: 90, scale: 0.92 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.45,
+            ease: "power3.out",
+          }
+        )
+          .to(word, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.35,
+          })
+          .to(word, {
+            opacity: 0,
+            y: -90,
+            scale: 0.92,
+            duration: 0.45,
+            ease: "power3.in",
+          });
+      });
+
+      if (isDesktop) {
+        tl.to(
+          ".topbar",
+          {
+            y: -120,
+            opacity: 0,
+            pointerEvents: "none",
+            duration: 0.35,
+            ease: "power3.out",
+          },
+          ">"
+        );
+      }
+
+      tl.set(boxRef.current, {
+        opacity: 1,
+        visibility: "visible",
+      });
+
+      tl.to(boxRef.current, {
+        width: "92vw",
+        height: "82vh",
+        borderRadius: "42px",
+        scale: 1,
+        duration: 1.4,
+        ease: "power3.inOut",
+      });
+
+      tl.to(
+        ".contact-inner",
         {
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.45,
+          duration: 0.8,
           ease: "power3.out",
-        }
-      )
-        .to(word, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.35,
-        })
-        .to(word, {
-          opacity: 0,
-          y: -90,
-          scale: 0.92,
-          duration: 0.45,
-          ease: "power3.in",
-        });
-    });
+        },
+        "-=0.35"
+      );
 
-    tl.set(boxRef.current, {
-      opacity: 1,
-      visibility: "visible",
-    });
+      ScrollTrigger.refresh();
+    }, sectionRef);
 
-    tl.to(boxRef.current, {
-      width: "92vw",
-      height: "82vh",
-      borderRadius: "42px",
-      scale: 1,
-      duration: 1.4,
-      ease: "power3.inOut",
-    });
-
-    tl.to(
-      ".contact-inner",
-      {
-        opacity: 1,
+    return () => {
+      gsap.to(".topbar", {
         y: 0,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out",
-      },
-      "-=0.35"
-    );
-
-    ScrollTrigger.refresh();
-  }, sectionRef);
-
-  return () => ctx.revert();
-}, []);
+        opacity: 1,
+        pointerEvents: "auto",
+        duration: 0.2,
+      });
+      ctx.revert();
+    };
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -155,14 +209,22 @@ export default function Contact() {
 
               <div>
                 <small>LinkedIn</small>
-                <a href="https://www.linkedin.com/in/mughees-rehman-4600753bb/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/mughees-rehman-4600753bb/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   linkedin.com/in/mughees-rehman
                 </a>
               </div>
 
               <div>
                 <small>GitHub</small>
-                <a href="https://github.com/M4GeeZ" target="_blank" rel="noreferrer">
+                <a
+                  href="https://github.com/M4GeeZ"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   github.com/M4GeeZ
                 </a>
               </div>

@@ -249,3 +249,27 @@
 .contact-desc::after {
   margin-top: 24px;
 }
+
+@media (max-width: 900px) {
+  .contact-box {
+    height: 86vh !important;
+    overflow-y: auto;
+  }
+
+  .contact-inner {
+    padding-top: 55px;
+    align-content: start;
+  }
+
+  .contact-left {
+    transform: none !important;
+    top: 0 !important;
+  }
+
+  .contact-title {
+    display: block;
+    font-size: clamp(42px, 13vw, 58px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+}

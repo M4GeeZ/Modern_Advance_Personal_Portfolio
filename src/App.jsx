@@ -50,6 +50,8 @@ function App() {
       );
     });
 
+    
+
     ScrollTrigger.refresh();
 
     return () => {
