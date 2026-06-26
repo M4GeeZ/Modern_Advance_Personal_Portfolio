@@ -829,7 +829,7 @@ function SplashCursor({
   const isMobile =
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  const mobileMultiplier = isMobile ? 0.45 : 1;
+  const mobileMultiplier = isMobile ? 0.15 : 1;
 
   let dx = pointer.deltaX * config.SPLAT_FORCE * mobileMultiplier;
   let dy = pointer.deltaY * config.SPLAT_FORCE * mobileMultiplier;
