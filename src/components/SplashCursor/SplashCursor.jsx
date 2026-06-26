@@ -43,7 +43,7 @@ function SplashCursor({
       this.color = [0, 0, 0];
     }
     <SplashCursor
-  DENSITY_DISSIPATION={isMobile ? 1.6 : 0.8}
+  DENSITY_DISSIPATION={isMobile ? 0.8 : 0.8}
   VELOCITY_DISSIPATION={isMobile ? 1.5 : 0.8}
   PRESSURE={isMobile ? 0.08 : 0.25}
   CURL={isMobile ? 3 : 7}
@@ -1031,6 +1031,8 @@ function SplashCursor({
         let posX = scaleByPixelRatio(touches[i].clientX);
         let posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerMoveData(pointer, posX, posY, pointer.color);
+        splatPointer(pointer);
+splatPointer(pointer);
       }
     }
 

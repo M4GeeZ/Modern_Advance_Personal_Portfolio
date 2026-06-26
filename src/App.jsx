@@ -66,7 +66,19 @@ function App() {
   return (
     <>
       {loading && <Preloader onFinish={() => setLoading(false)} />}
-{!loading && <SplashCursor />}
+{!loading && 
+<SplashCursor 
+DENSITY_DISSIPATION={0.45}
+  VELOCITY_DISSIPATION={0.45}
+  PRESSURE={0.28}
+  CURL={9}
+  SPLAT_RADIUS={0.45}
+  SPLAT_FORCE={18000}
+  COLOR_UPDATE_SPEED={12}
+  SHADING={true}
+  RAINBOW_MODE={false}
+  COLOR="#00E5FF"
+  />}
       <Navbar />
       <main>
         <Hero />
