@@ -1,6 +1,12 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
+function isBlockedArea(clientX, clientY) {
+  const el = document.elementFromPoint(clientX, clientY);
+
+  return el?.closest("#skills, #projects, #contact");
+}
+
 function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
@@ -993,6 +999,7 @@ function SplashCursor({
 
     // Named event handlers for proper cleanup
     function handleMouseDown(e) {
+      if (isBlockedArea(e.clientX, e.clientY)) return;
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
@@ -1002,6 +1009,13 @@ function SplashCursor({
 
     let firstMouseMoveHandled = false;
     function handleMouseMove(e) {
+      if (isBlockedArea(e.clientX, e.clientY)) {
+  canvas.parentElement.style.opacity = "0";
+  pointers[0].moved = false;
+  return;
+} else {
+  canvas.parentElement.style.opacity = "1";
+}
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
       let posY = scaleByPixelRatio(e.clientY);
@@ -1015,6 +1029,7 @@ function SplashCursor({
     }
 
     function handleTouchStart(e) {
+      if (isBlockedArea(touches[i].clientX, touches[i].clientY)) return;
       const touches = e.targetTouches;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
@@ -1028,6 +1043,13 @@ function SplashCursor({
       const touches = e.targetTouches;
       let pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
+        if (isBlockedArea(touches[i].clientX, touches[i].clientY)) {
+  canvas.parentElement.style.opacity = "0";
+  pointers[0].moved = false;
+  return;
+} else {
+  canvas.parentElement.style.opacity = "1";
+}
         let posX = scaleByPixelRatio(touches[i].clientX);
         let posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerMoveData(pointer, posX, posY, pointer.color);

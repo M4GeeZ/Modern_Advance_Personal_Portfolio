@@ -37,6 +37,12 @@ export default function Preloader({ onFinish }) {
         <h1 className="preloader-brand">M.R</h1>
 
         <p className="preloader-count">{count}%</p>
+
+<div className="preloader-bar">
+  <span />
+</div>
+
+<p className="preloader-text">Loading...</p>
       </div>
     </div>
   );
