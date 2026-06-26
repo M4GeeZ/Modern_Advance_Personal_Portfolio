@@ -826,14 +826,8 @@ function SplashCursor({
     }
 
    function splatPointer(pointer) {
-  const isMobile =
-    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  const mobileMultiplier = isMobile ? 0.15 : 1;
-
-  let dx = pointer.deltaX * config.SPLAT_FORCE * mobileMultiplier;
-  let dy = pointer.deltaY * config.SPLAT_FORCE * mobileMultiplier;
-
+  let dx = pointer.deltaX * config.SPLAT_FORCE;
+  let dy = pointer.deltaY * config.SPLAT_FORCE;
   splat(pointer.texcoordX, pointer.texcoordY, dx, dy, pointer.color);
 }
 

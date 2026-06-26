@@ -68,16 +68,16 @@ function App() {
       {loading && <Preloader onFinish={() => setLoading(false)} />}
 {!loading && (
   <SplashCursor
-    DENSITY_DISSIPATION={window.innerWidth <= 768 ? 0.45 : 0.9}
-    VELOCITY_DISSIPATION={window.innerWidth <= 768 ? 0.45 : 0.9}
-    PRESSURE={window.innerWidth <= 768 ? 0.28 : 0.18}
-    CURL={window.innerWidth <= 768 ? 9 : 5}
-    SPLAT_RADIUS={window.innerWidth <= 768 ? 0.45 : 0.2}
-    SPLAT_FORCE={window.innerWidth <= 768 ? 18000 : 7000}
-    COLOR_UPDATE_SPEED={12}
-    SHADING={true}
-    RAINBOW_MODE={false}
-    COLOR="#00E5FF"
+    DENSITY_DISSIPATION={0.9}
+  VELOCITY_DISSIPATION={0.9}
+  PRESSURE={0.18}
+  CURL={5}
+  SPLAT_RADIUS={0.20}
+  SPLAT_FORCE={7000}
+  COLOR_UPDATE_SPEED={12}
+  SHADING={true}
+  RAINBOW_MODE={false}
+  COLOR="#00E5FF"
   />
 )}
       <Navbar />
