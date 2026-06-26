@@ -17,7 +17,11 @@ export default function Preloader({ onFinish }) {
         clearInterval(interval);
 
         setTimeout(() => {
-  onFinish?.();
+ requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    onFinish();
+  });
+});
 }, 1200);
       } else {
         setCount(current);

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import SplashCursor from "./components/SplashCursor/SplashCursor";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -66,29 +67,35 @@ function App() {
   return (
     <>
       {loading && <Preloader onFinish={() => setLoading(false)} />}
-{!loading && (
-  <SplashCursor
-    DENSITY_DISSIPATION={0.9}
-  VELOCITY_DISSIPATION={0.9}
-  PRESSURE={0.18}
-  CURL={5}
-  SPLAT_RADIUS={0.20}
-  SPLAT_FORCE={7000}
-  COLOR_UPDATE_SPEED={12}
-  SHADING={true}
-  RAINBOW_MODE={false}
-  COLOR="#00E5FF"
-  />
-)}
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
+
+      {!loading && (
+        <>
+          <SplashCursor
+            DENSITY_DISSIPATION={0.9}
+            VELOCITY_DISSIPATION={0.9}
+            PRESSURE={0.18}
+            CURL={5}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={7000}
+            COLOR_UPDATE_SPEED={12}
+            SHADING={true}
+            RAINBOW_MODE={false}
+            COLOR="#00E5FF"
+          />
+
+          <Navbar />
+
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
+
+          <Footer />
+        </>
+      )}
     </>
   );
 }
