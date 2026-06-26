@@ -825,11 +825,17 @@ function SplashCursor({
       blit(target);
     }
 
-    function splatPointer(pointer) {
-      let dx = pointer.deltaX * config.SPLAT_FORCE;
-      let dy = pointer.deltaY * config.SPLAT_FORCE;
-      splat(pointer.texcoordX, pointer.texcoordY, dx, dy, pointer.color);
-    }
+   function splatPointer(pointer) {
+  const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  const mobileMultiplier = isMobile ? 0.45 : 1;
+
+  let dx = pointer.deltaX * config.SPLAT_FORCE * mobileMultiplier;
+  let dy = pointer.deltaY * config.SPLAT_FORCE * mobileMultiplier;
+
+  splat(pointer.texcoordX, pointer.texcoordY, dx, dy, pointer.color);
+}
 
     function clickSplat(pointer) {
       const color = generateColor();
