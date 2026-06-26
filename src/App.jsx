@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import SplashCursor from "./components/SplashCursor/SplashCursor";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
@@ -66,7 +66,7 @@ function App() {
   return (
     <>
       {loading && <Preloader onFinish={() => setLoading(false)} />}
-
+{!loading && <SplashCursor />}
       <Navbar />
       <main>
         <Hero />
