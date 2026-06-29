@@ -12,6 +12,7 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
+import LastContact from "./components/Lastcontact/Lastcontact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,15 +83,16 @@ function App() {
             RAINBOW_MODE={false}
             COLOR="#00E5FF"
           />
-
+          
           <Navbar />
 
           <main>
             <Hero />
             <About />
-            <Skills />
             <Projects />
             <Contact />
+            <LastContact/>
+          
           </main>
 
           <Footer />
