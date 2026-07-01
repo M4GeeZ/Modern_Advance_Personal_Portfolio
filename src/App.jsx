@@ -7,12 +7,11 @@ import SplashCursor from "./components/SplashCursor/SplashCursor";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
-import Contact from "./components/Contact/Contact";
+import LineAnime from "./components/LineAnime/LineAnime";
 import Footer from "./components/Footer/Footer";
 import Preloader from "./components/Preloader/Preloader";
-import LastContact from "./components/Lastcontact/Lastcontact";
+import Contact from "./components/Contact/Contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,13 +84,12 @@ function App() {
           />
           
           <Navbar />
-
           <main>
             <Hero />
             <About />
             <Projects />
+            <LineAnime />
             <Contact />
-            <LastContact/>
           
           </main>
 

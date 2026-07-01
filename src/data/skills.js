@@ -26,6 +26,10 @@ export const skillGroups = [
     { icon: SiHtml5, name: "HTML5" },
     { icon: SiCss, name: "CSS3" },
     { icon: SiTailwindcss, name: "Tailwind" },
+    {
+  name: "React Native",
+  icon: SiReact,
+},
   ],
 },
 {

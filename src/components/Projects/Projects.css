@@ -64,6 +64,7 @@
   perspective: 1800px;
   transform-style: preserve-3d;
   will-change: transform, opacity, filter;
+  overflow: hidden;
 }
 
 /* PROJECT CARD SAME GLASSY DESIGN */
@@ -253,10 +254,21 @@
   .marquee-track span {
     font-size: 18vw;
   }
+  @media (max-width:850px){
 
-  .projects-stack-section {
-    min-height: 10vh;
-  }
+.projects-stack-section{
+    min-height:160vh;
+}
+}
+
+
+@media (max-width:850px){
+
+.project-cards-stack{
+    height:75vh;
+}
+
+}
 
   .project-cards-stack {
     height: 100vh;
@@ -329,7 +341,6 @@
     min-height: 78vh;
     padding: 20px;
   }
-
   .mockup {
     height: 210px;
     min-height: 210px;

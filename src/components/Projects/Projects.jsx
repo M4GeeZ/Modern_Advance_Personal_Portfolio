@@ -28,7 +28,7 @@ export default function Projects() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=${projects.length * 1300}`,
+          end: () => `+=${projects.length * 900}`,
           scrub: 1.2,
           pin: true,
           anticipatePin: 1,
@@ -37,15 +37,11 @@ export default function Projects() {
       });
 
       for (let i = 1; i < cards.length; i++) {
-        tl.to(
-          cards[i],
-          {
-            yPercent: i * 3,
-            duration: 1.2,
-            ease: "power3.out",
-          },
-          ">"
-        );
+        tl.to(cards[i], {
+          yPercent: i * 3,
+          duration: 1.2,
+          ease: "power3.out",
+        });
 
         tl.to(
           cards[i - 1],
@@ -70,17 +66,6 @@ export default function Projects() {
         rotationX: (i) => 18 - i * 2,
         opacity: (i) => 0.25 + i * 0.13,
         duration: 1,
-        ease: "power3.inOut",
-      });
-
-      tl.to(".project-cards-stack", {
-        y: -120,
-        z: -900,
-        scale: 0.55,
-        rotationX: 18,
-        opacity: 0,
-        filter: "blur(8px)",
-        duration: 1.4,
         ease: "power3.inOut",
       });
     }, sectionRef);
